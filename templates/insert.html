@@ -1,0 +1,18 @@
+{% extends 'display.html' %}
+
+{% block action %}
+<form action="{{ url_for('insert_form', table_name = table_name) }}" method="POST">
+    {% for column,args in schema.items() %}
+    <label for="{{ column }}">{{ column }}</label>
+    <input 
+        type="{{ args.type }}" 
+        name="{{ column }}" 
+        id="{{ column }}" 
+        {% if args.maxlength %}maxlength="{{ args.maxlength }}"{% endif %}
+        {% if args.placeholder %}placeholder="{{ args.placeholder }}"{% endif %}
+        required><br><br>
+    {% endfor %}
+
+    <button type="submit">Insert</button>
+</form>
+{% endblock %}

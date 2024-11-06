@@ -1,0 +1,94 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 20px;
+    background-color: #f0f4f8;
+    color: #444;
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #1a73e8;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tr:hover {
+    background-color: #e8f0fe;
+    transition: background-color 0.3s ease;
+}
+
+button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #155bb5;
+    transform: translateY(-3px);
+}
+
+.centered {
+    text-align: center;
+    padding: 30px 0px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccd1d9;
+    font-size: 16px;
+    background-color: #f8fafc;
+    color: #444;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: #1a73e8;
+    outline: none;
+}

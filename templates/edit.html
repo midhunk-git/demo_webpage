@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Table</title>
+    <link rel="stylesheet" type="text/css" href="..\static\style.css">
+</head>
+<body>
+    <h1>{{ table_name }}</h1>
+    <div class = "centered">
+    <form action="{{ url_for('edit_table', table_name = table_name) }}" method="POST">
+        {% for column,args in schema.items() %}
+        <label for="{{ column }}">{{ column }}</label>
+        <input 
+            type="{{ args.type }}" 
+            name="{{ column }}" 
+            id="{{ column }}" 
+            {% if args.maxlength %}maxlength="{{ args.maxlength }}"{% endif %}
+            {% if args.placeholder %}placeholder="{{ args.placeholder }}"{% endif %}><br><br>
+        {% endfor %}
+        <input type="hidden" name="s_id" value="{{ s_id }}">
+    
+        <button type="submit">Update</button>
+    </form>
+    </div>
+</body>

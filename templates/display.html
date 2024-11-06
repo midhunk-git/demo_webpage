@@ -1,0 +1,46 @@
+<!-- templates/table.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Table</title>
+    <link rel="stylesheet" type="text/css" href="..\static\style.css">
+</head>
+<body>
+    <h1>{{ table_name }}</h1>
+    <table border="1">
+        <tr>
+            {% for column,args in schema.items() %}
+            <td>{{ column }}</td>
+            {% endfor %}
+            <td>Action</td>
+        </tr>
+        {% for value in values %}
+        <tr>
+        <form action="{{ url_for('process_row', table_name = table_name) }}" method="POST">
+            {% for column,d_types in schema.items() %}
+            <td>
+                {{ value[loop.index0] }}
+                <input type="hidden" name="{{ column }}" value="{{ value[loop.index0] }}">
+            </td>
+            {% endfor %}
+            <td>
+                <button type="submit" name="action" value="delete">delete</button>
+                <button type="submit" name="action" value="edit">edit</button>
+                {% if table_name == 'customer_table' %}
+                <button type="submit" name="action" value="view_orders">view orders</button>
+                {% endif %}
+            </td>
+        </form>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class = "centered">
+        {% block action %}
+        <button onclick="window.location.href='/insert/{{ table_name }}'" type="button">Insert</button>
+        <button onclick="window.location.href='/delete/{{ table_name }}'" type="button">Delete</button>
+        <button onclick="window.location.href='/display/customer_table'" type="button">Customer Table</button>
+        <button onclick="window.location.href='/display/orders'" type="button">Orders Table</button>
+        {% endblock %}
+    </div>
+</body>
+</html>
